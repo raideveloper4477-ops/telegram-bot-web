@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Telegram Bot Hosting</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">🔧 Admin Panel</div>
+            <div class="user-info">
+                <span>Admin</span>
+                <button id="logout-btn" class="btn">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>System Overview</h1>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0;">
+            <div class="card" style="text-align: center;">
+                <h3>Total Users</h3>
+                <div style="font-size: 48px;" id="total-users">0</div>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Total Bots</h3>
+                <div style="font-size: 48px;" id="total-bots">0</div>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Running Bots</h3>
+                <div style="font-size: 48px;" id="running-bots">0</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Users</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email/Phone</th>
+                        <th>Role</th>
+                        <th>Plan</th>
+                        <th>Suspended</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card" style="margin-top: 20px;">
+            <h3>Running Bots</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Bot ID</th>
+                        <th>Owner</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Running</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bots-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>

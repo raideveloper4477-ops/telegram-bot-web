@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Telegram Bot Hosting</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">🤖 Bot Hosting</div>
+            <div class="user-info">
+                <span id="plan-badge" class="plan-badge">FREE</span>
+                <span id="username"></span>
+                <a href="/upgrade" class="btn btn-primary">Upgrade</a>
+                <button id="logout-btn" class="btn">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Bot selector -->
+        <div class="bot-selector">
+            <h3>Your Bots</h3>
+            <select id="bot-select">
+                <option value="">-- Select a bot --</option>
+            </select>
+            <button id="create-bot-btn" class="btn btn-success">+ New Bot</button>
+        </div>
+        
+        <div id="no-bot-message" style="display: none; text-align: center; padding: 40px;">
+            <h3>You don't have any bots yet</h3>
+            <button id="create-bot-btn-alt" class="btn btn-success">Create your first bot</button>
+        </div>
+        
+        <div id="bot-controls" style="display: none;">
+            <!-- Status & Timer -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <span id="bot-status" class="status-badge status-stopped">STOPPED</span>
+                </div>
+                <div class="timer" id="timer">00:00:00</div>
+                <div>
+                    <button id="start-btn" class="btn btn-success">Start</button>
+                    <button id="stop-btn" class="btn btn-danger" disabled>Stop</button>
+                    <button id="restart-btn" class="btn btn-warning" disabled>Restart</button>
+                </div>
+            </div>
+            
+            <!-- Main dashboard grid -->
+            <div class="dashboard-grid">
+                <!-- Left column: File upload & commands -->
+                <div>
+                    <div class="card">
+                        <h3>Upload Files</h3>
+                        <div class="file-upload">
+                            <label for="requirements-file">📄 requirements.txt</label>
+                            <input type="file" id="requirements-file" accept=".txt">
+                        </div>
+                        <div class="file-upload">
+                            <label for="bot-file">🐍 bot.py</label>
+                            <input type="file" id="bot-file" accept=".py">
+                        </div>
+                        <button id="upload-btn" class="btn btn-primary" style="width: 100%;">Upload</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Command Panel</h3>
+                        <div class="command-panel">
+                            <input type="text" id="command-input" placeholder="Send command to bot..." disabled>
+                            <button id="send-command-btn" class="btn btn-primary" disabled>Send</button>
+                        </div>
+                        <button id="download-logs-btn" class="btn" style="margin-top: 10px;">⬇️ Download Logs</button>
+                    </div>
+                </div>
+                
+                <!-- Right column: Resources & Console -->
+                <div>
+                    <div class="card">
+                        <h3>Resources</h3>
+                        <div class="resource-label">
+                            <span>CPU</span>
+                            <span id="cpu-text">0%</span>
+                        </div>
+                        <div class="resource-bar">
+                            <div id="cpu-bar" class="resource-fill" style="width: 0%;"></div>
+                        </div>
+                        <div class="resource-label">
+                            <span>RAM</span>
+                            <span id="ram-text">0 MB</span>
+                        </div>
+                        <div class="resource-bar">
+                            <div id="ram-bar" class="resource-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Console Output</h3>
+                        <div id="console" class="console">
+                            <!-- Logs will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set username from session (passed from backend? Alternatively, we can fetch it)
+        document.getElementById('username').textContent = '{{ session.username }}';
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>

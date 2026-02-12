@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Plan - Telegram Bot Hosting</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">🤖 Bot Hosting</div>
+            <div class="user-info">
+                <span id="plan-badge" class="plan-badge">FREE</span>
+                <a href="/dashboard" class="btn">Back to Dashboard</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>Choose Your Plan</h1>
+        <p style="margin-bottom: 20px;">Current plan: <strong id="current-plan">FREE</strong></p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="card" style="text-align: center;">
+                <h2 style="color: #00ff9d;">FREE</h2>
+                <p style="font-size: 24px; margin: 20px 0;">$0</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ 1 bot</li>
+                    <li>✓ 24h runtime</li>
+                    <li>✓ 3 restarts</li>
+                    <li>✓ 500 logs</li>
+                </ul>
+                <button class="btn" disabled>Current</button>
+            </div>
+            
+            <div class="card" style="text-align: center;">
+                <h2 style="color: #00ff9d;">PRO</h2>
+                <p style="font-size: 24px; margin: 20px 0;">$9.99/mo</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ 3 bots</li>
+                    <li>✓ 72h runtime</li>
+                    <li>✓ 10 restarts</li>
+                    <li>✓ 5000 logs</li>
+                    <li>✓ Higher CPU/RAM</li>
+                </ul>
+                <button class="btn btn-primary upgrade-btn" data-plan="PRO">Upgrade</button>
+            </div>
+            
+            <div class="card" style="text-align: center;">
+                <h2 style="color: #00ff9d;">ULTRA</h2>
+                <p style="font-size: 24px; margin: 20px 0;">$29.99/mo</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ 10 bots</li>
+                    <li>✓ Unlimited runtime</li>
+                    <li>✓ Unlimited restarts</li>
+                    <li>✓ Unlimited logs</li>
+                    <li>✓ Max CPU/RAM</li>
+                </ul>
+                <button class="btn btn-primary upgrade-btn" data-plan="ULTRA">Upgrade</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
