@@ -145,7 +145,7 @@ def upload_files():
 @app.route('/bot/start', methods=['POST'])
 @login_required_api
 @security.rate_limit(lambda: session.get('user_id', 'anon'))
-def start_bot():
+def start_bot_route():
     data = request.json
     bot_id = data.get('bot_id')
     user_id = session['user_id']
