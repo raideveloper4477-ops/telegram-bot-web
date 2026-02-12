@@ -1,6 +1,7 @@
 import time
 from collections import defaultdict
-from flask import request, session
+from flask import request
+from functools import wraps  # <-- add this
 
 # Rate limiting
 rate_limit_storage = defaultdict(list)
@@ -9,6 +10,7 @@ RATE_WINDOW = 10
 
 def rate_limit(key_func=None):
     def decorator(f):
+        @wraps(f)   # <-- ADD THIS LINE
         def wrapped(*args, **kwargs):
             key = key_func() if key_func else request.remote_addr
             now = time.time()
